@@ -11,9 +11,9 @@ namespace DreamWorkerStudioJobs . Models
 
         public string Name { get; set; }
 
-        public List<Tuple<Project , string>> Introduction { get; set; }
+        public Dictionary<Project , string> Introduction { get; set; } = new Dictionary<Project , string> ( );
 
-        public List<Tuple<Project , string>> Requirement { get; set; }
+        public Dictionary<Project , string> Requirement { get; set; } = new Dictionary<Project , string> ( );
 
     }
 }
