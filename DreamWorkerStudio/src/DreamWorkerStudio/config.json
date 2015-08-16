@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "DreamWorkerStudio"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-DreamWorkerStudio-5ca55713-5c58-4da8-a4be-ea087dfe233a;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
