@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ProjectList>
+  <Project ID="Software" Name="应用程序和游戏开发项目" Introduction="开发应用程序和游戏，学习计算机科学和软件工程相关技术。">
+    <Job ID="Developer" Name="程序开发工程师" Introduction="使用 C#，在 Windows 平台使用 Visual Studio 开发卓越的通用应用程序。" Requirement="你需要具有开发 Windows 应用程序的经验，当然，我们希望的更多是学习和团队合作的能力，如果你有 Linux, Android, IOS, Mac OS X 的开发经验的话，我们也欢迎你们的加入。"/>
+    <Job ID="Tester" Name="测试工程师" Introduction="与程序开发工程师协同工作，进行代码审查，编写单元测试和UI测试，测试应用程序和游戏，保证产品代码的质量。" Requirement="你需要具有软件开发和测试的经验，在各种设备上测试应用程序并发现问题。"/>
+    <Job ID="Writer" Name = "文案和应用程序策划" Introduction = "与项目经理协同工作，策划项目，编写并维护文档，维护并规范化代码注释，创建和维护文本资源" Requirement = "你需要熟练地运用文字，用少量的文字来表现尽可能多的内容，你应该熟悉中文和英文来编写地道的文案。"/>
+    <Job ID ="GameDesign" Name = "游戏设计师" Introduction = "与项目经理协同工作，设计和规划吸引人的游戏并提出方案。" Requirement = "你应当熟悉游戏，关注玩家的心理和游戏的发展趋势。"/>
+    <Job ID="ProjectManager" Name = "项目经理和架构师" Introduction = "提出并分析需求，设计项目架构并维护名称，组织团队工作，管理源代码管理，设定并分配工作项，进行需求策划，对项目组成部分或模块进行完整系统设计，协同配合制定和申报立项报告材料，组织项目团队完成项目任务，保证项目的完成时间和完成质量。" Requirement = "你需要有大量的软件工程经验和团队管理经验，能够带领整个团队完成项目。"/>
+    <Job ID = "Artist" Name = "艺术家" Introduction = "设计UI界面，动画安排与布局规划，绘制所需的图像。设计游戏场景，制作三维模型。" Requirement = "你需要有绘画基础和设计观点，使用数位板和Ps，Ai，Maya工作，使用现代设计语言，当然，你最好具有使用XAML的能力。"/>
+    <Job ID = "Musican" Name = "音乐家" Introduction = "与艺术家协同工作，为游戏和应用程序创作令人沉浸的音乐和音效" Requirement = "你需要有使用电脑作曲的能力，在作曲方面有独立的见解。"/>
+  </Project>
+  <Project ID="Web" Name="Web 开发项目" Introduction="开发美观，灵活，响应性强，拥有适应性布局的动态 Web 应用程序。学习Web技术。">
+    <Job ID="Front" Name="前端工程师" Introduction="与艺术家协同工作，使用Html 5，CSS 3 , JavaScript 开发美观，灵活，响应性强，拥有适应性布局的动态 Web 页面。" Requirement="你需要熟练掌握前端开发技能，熟悉前段开发的工具和资源。"/>
+    <Job ID="Background" Name="后端工程师" Introduction="使用C#和ASP.Net 开发Web后台和应用程序的服务端。" Requirement="你需要具有后端开发和开发服务器应用程序的经验，而且你要在安全性上做更多的工作。"/>
+    <Job ID="" Name="文案" Introduction="编写网站的文案。" Requirement="你需要熟练地运用文字，用少量的文字来表现尽可能多的内容，你应该熟悉中文和英文来编写地道的文案。"/>
+      <Job ID="ProjectManager" Name = "项目经理和架构师" Introduction = "提出并分析需求，设计项目架构并维护名称，组织团队工作，管理源代码管理，设定并分配工作项，进行需求策划，对项目组成部分或模块进行完整系统设计，协同配合制定和申报立项报告材料，组织项目团队完成项目任务，保证项目的完成时间和完成质量。" Requirement = "你需要有大量的软件工程经验和团队管理经验，能够带领整个团队完成项目。"/>
+      <Job ID = "Artist" Name = "艺术家" Introduction = "设计网站UI和设计元素，绘制所需的图案。" Requirement = "你需要有绘画基础和设计观点，使用数位板和Ps，Ai工作，使用现代设计语言。"/>
+
+  </Project>
+  <Project ID="Hardware" Name="硬件开发和VEX机器人项目" Introduction="使用树莓派开发硬件设备，使用VEX套件设计制作机器人参加比赛。">
+    <Job ID="VEXProgrammer" Name="VEX机器人程序师" Introduction="负责对机器人自动程序的设计与手动操控的优化。" Requirement="你需要对机器人有强烈的兴趣，且具有强动手能力与图形记忆能力。"/>
+    <Job ID="VEXRepairman" Name="VEX机器人维修师" Introduction="与工程师相互配合，对机器人进行定期检修，排除故障。" Requirement="你需要有强动手能力和较好的耐心，掌握一定的3DMax等绘制图形软件。"/>
+    <Job ID="VEXAssemblyman" Name="VEX机器人拼装工程师" Introduction="设计与拼装机器人，在后期进行改进。" Requirement="你需要有较强的动手能力与设计能力，并掌握3ds MAX等工具"/>
+    <Job ID="HardwareDesigner" Name="硬件设计师" Introduction="提供想法，拿出设计，并对产品背景进行查询。" Requirement="你需要有很好的想象力和生活观察能力。"/>
+    <Job ID="Hardware" Name="硬件方案师" Introduction="与硬件设计师相互配合，根据设计提出硬件方案。" Requirement="你需要有很强的规划能力和图形想象能力，并掌握3ds Max等图形处理软件。"/>
+    <Job ID="HardwareProgrammer" Name="硬件编程师" Introduction="对硬件设计动作并进行编程。" Requirement="你需要有一定的语言学习基础，并有很好的耐心。"/>
+  </Project>
+  <Project ID="Media" Name="视频和动画制作项目" Introduction="制作宣传视频，微电影，商业广告和创作视频企划，用镜头展现世界的美丽和人性的光辉。">
+    <Job ID="PlayWright" Name="编剧" Introduction="编写剧本，以文字形式表述表演内容。" Requirement="你需要具有足够的文学表达能力，熟悉影视、戏剧、广告，专题片运作的相关流程、表现手法。"/>
+    <Job ID="Animation" Name="动画师" Introduction="设计和制作二维和三维动画。" Requirement="你需要熟悉所需的工具和人的骨骼特征。"/>
+    <Job ID="Director" Name="导演" Introduction="与编剧协同工作，研究和分析剧本，为剧本找到恰当的表达形式，指导现场拍摄工作。" Requirement="你需要具备表演能力和想象力，有领导能力。"/>
+    <Job ID="Cameramen" Name="摄影师" Introduction="与导演和后期编辑师协同工作，取景拍摄视频。" Requirement="你需要有大量的外景拍摄经验和优秀的审美观点。"/>
+    <Job ID="FilmEditor" Name="后期编辑师" Introduction="与艺术家和音乐家协同工作，后期视频编辑，处理素材，制作特效和字幕，处理音频，修复前期的不足。" Requirement="你需要掌握Adobe Premier Pro，Adobe After Effects和Adobe Audition，制作优秀的视频。"/>
+      <Job ID = "Artist" Name = "艺术家" Introduction = "" Requirement = "你需要有绘画基础和设计观点，使用数位板和Ps，Ai，Maya工作，使用现代设计语言，当然，你最好具有使用XAML的能力。"/>
+    <Job ID = "Musican" Name = "音乐家" Introduction = "与艺术家协同工作，为游戏和应用程序创作令人沉浸的音乐和音效" Requirement = "你需要有使用电脑作曲的能力，在作曲方面有独立的见解。"/>
+
+  </Project>
+</ProjectList>

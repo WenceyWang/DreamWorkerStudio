@@ -9,24 +9,24 @@ using System . Reflection;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace DreamWorkerStudio . Controllers
+namespace DreamWorkerStudioJobs . Controllers
 {
     public class ProjectsController : Controller
     {
-        public IActionResult Index ( string arguments )
-        {
-            var assembly = Assembly . GetExecutingAssembly ( );
+        //public IActionResult Index ( string arguments )
+        //{
+        //    var assembly = Assembly . GetExecutingAssembly ( );
 
-            var stream = assembly . GetFile ( "" );
+        //    var stream = assembly . GetFile ( "" );
 
-            var reader = new StreamReader ( stream );
+        //    var reader = new StreamReader ( stream );
 
-            var doc = XDocument . Parse ( reader . ReadToEnd ( ) );
+        //    var doc = XDocument . Parse ( reader . ReadToEnd ( ) );
 
             
 
-            return View ( );
-        }
+        //    return View ( );
+        //}
 
         // GET: /<controller>/
         public IActionResult Index ( )

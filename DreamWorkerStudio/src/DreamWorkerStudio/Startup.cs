@@ -20,10 +20,10 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
-using DreamWorkerStudio.Models;
-using DreamWorkerStudio.Services;
+using DreamWorkerStudioJobs.Models;
+using DreamWorkerStudioJobs.Services;
 
-namespace DreamWorkerStudio
+namespace DreamWorkerStudioJobs
 {
     public class Startup
     {
