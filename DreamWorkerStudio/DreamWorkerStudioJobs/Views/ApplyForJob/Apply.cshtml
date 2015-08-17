@@ -1,0 +1,149 @@
+﻿@model DreamWorkerStudioJobs.Models.ApplyForJob
+
+@{
+	ViewBag.Title = "Apply";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+	<h1>申请职位</h1>
+	<p class="lead">报名参加我们的考试</p>
+</div>
+@if(ViewBag.HasState == true)
+{
+	<div class="alert alert-@ViewBag.Kind" role="alert">@ViewBag.Message</div>
+}
+
+@{
+	List<SelectListItem> projectItem = new List<SelectListItem>();
+	foreach(var item in MvcApplication.Current.ProjectList)
+	{
+		projectItem.Add(new SelectListItem { Text = item.Name,Value = item.ID });
+	}
+	List<SelectListItem> jobItem = new List<SelectListItem>();
+	foreach(var item in MvcApplication.Current.JobList)
+	{
+		jobItem.Add(new SelectListItem { Text = item.Name,Value = item.ID });
+	}
+}
+
+@using(Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	<h4>你的信息</h4>
+	<hr />
+	@Html.ValidationSummary(true);
+	<div class="row form-horizontal">
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Project,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Project,projectItem)
+				@Html.ValidationMessageFor(model => model.Project)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Job,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Job,jobItem)
+				@Html.ValidationMessageFor(model => model.Job)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Sex,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownListFor(model => model.Sex,new SelectListItem[] { new SelectListItem { Text = "男",Value = "Male" },new SelectListItem { Text = "女",Value = "Female" } })
+				@Html.ValidationMessageFor(model => model.Sex)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Xing,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Xing,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Xing)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Ming,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Ming,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Ming)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.FirstName,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.FirstName,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.FirstName)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.FamilyName,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.FamilyName,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.FamilyName)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Email,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Email,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Email)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.PhoneNumber,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.PhoneNumber,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.PhoneNumber)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Grade,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Grade,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Grade)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Class,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Class,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Class)
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Mark,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Mark,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Mark)
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Advantage,new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.TextBoxFor(model => model.Advantage,new { @class = "control-form" })
+				@Html.ValidationMessageFor(model => model.Advantage)
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="提交" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+}

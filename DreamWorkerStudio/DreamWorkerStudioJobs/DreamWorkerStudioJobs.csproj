@@ -127,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApplyForJob.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,10 +177,10 @@
     <Content Include="Views\Projects\ProjectView.cshtml" />
     <Content Include="Views\Jobs\JobOverView.cshtml" />
     <Content Include="Views\Jobs\JobView.cshtml" />
+    <Content Include="Views\ApplyForJob\Apply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ApplyForJob\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -194,6 +195,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
