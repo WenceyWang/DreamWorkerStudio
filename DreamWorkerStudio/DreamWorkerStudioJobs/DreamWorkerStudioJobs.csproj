@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplyForJobController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,8 +172,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Projects\OverView.cshtml" />
+    <Content Include="Views\Projects\ProjectOverView.cshtml" />
     <Content Include="Views\Projects\ProjectView.cshtml" />
+    <Content Include="Views\Jobs\JobOverView.cshtml" />
+    <Content Include="Views\Jobs\JobView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

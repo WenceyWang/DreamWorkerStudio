@@ -29,11 +29,7 @@ namespace DreamWorkerStudioJobs.Controllers
 
         public ActionResult Index(string arguments)
         {
-
-            //if ( arguments == string . Empty )
-            //{
-            return View("OverView",MvcApplication.Current.ProjectList);
-            //}
+            return View("ProjectOverView",MvcApplication.Current.ProjectList);
         }
 
         // GET: /<controller>/
