@@ -1,30 +1,24 @@
 ﻿using System;
-using System . Collections . Generic;
-using System . Linq;
-using System . Web;
-using System . Web . Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
-namespace DreamWorkerStudioJobs . Controllers
+namespace DreamWorkerStudioJobs.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController:Controller
     {
-        public ActionResult Index ( )
+        public ActionResult Index()
         {
-            return View ( );
+            return View(MvcApplication.Current.ProjectList);
         }
 
-        public ActionResult About ( )
+        public ActionResult About()
         {
-            ViewBag . Message = "Your application description page.";
+            ViewBag.Message = "Your application description page.";
 
-            return View ( );
+            return View();
         }
 
-        public ActionResult Contact ( )
-        {
-            ViewBag . Message = "Your contact page.";
-
-            return View ( );
-        }
     }
 }

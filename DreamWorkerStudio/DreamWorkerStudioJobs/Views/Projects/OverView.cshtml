@@ -1,0 +1,56 @@
+﻿@using DreamWorkerStudioJobs;
+@model List<DreamWorkerStudioJobs.Models.Project>
+@{
+	ViewBag.Title = "项目概览";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+	<h1>项目概览</h1>
+	<p>我们拥有这些项目供你施展才华</p>
+</div>
+@foreach(var project in Model)
+{
+	<div>
+		<h2>@(project.Name)</h2>
+		<p class="lead">@(project.Introduction)</p>
+		<p>
+			<a class="btn btn-primary" href="/Projects/List/@(project . ID)">了解更多 &raquo;</a>
+		</p>
+		<div class="hidden-xs hidden-sm">
+			<div class="container-fluid">
+
+				<h3>这个项目希望招收到这些职位的人才</h3>
+				@{int length = project.Jobs.Count;}
+				@for(int i = 0;i < length;i += 3)
+				{
+					int num = 3;
+					if(i + 3 >= length)
+					{
+						num = (length - i);
+					}
+					var _temp = new DreamWorkerStudioJobs.Models.Job[num];
+					project.Jobs.CopyTo(i,_temp,0,num);
+
+					<div class="row">
+
+						@foreach(var job in new List<DreamWorkerStudioJobs.Models.Job>(_temp))
+						{
+							<div class="col-md-4">
+								<h4>@(job.Name)</h4>
+								<p>@(job.Introduction[project])</p>
+								<p>@(job.Requirement[project])</p>
+								<p>
+									<a class="btn btn-default" href="/Jobs/@(job . ID)">了解更多 &raquo;</a>
+								</p>
+							</div>
+						}
+					</div>
+
+				}
+
+			</div>
+		</div>
+	</div>
+					}
+

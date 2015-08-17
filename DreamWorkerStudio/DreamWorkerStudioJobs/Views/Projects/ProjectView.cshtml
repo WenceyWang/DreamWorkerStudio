@@ -1,0 +1,44 @@
+﻿@model DreamWorkerStudioJobs.Models.Project
+
+@{
+	ViewBag.Title = Model.Name;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+	<h1>@(Model.Name)</h1>
+	<p class="lead">@(Model.Introduction)</p>
+</div>
+<div>
+	<h2>我们希望</h2>
+	@{int length = Model.Jobs.Count;}
+	@for(int i = 0;i < length;i += 3)
+	{
+		int num = 3;
+		if(i + 3 >= length)
+		{
+			num = (length - i);
+		}
+		var _temp = new DreamWorkerStudioJobs.Models.Job[num];
+		Model.Jobs.CopyTo(i,_temp,0,num);
+		<div class="row">
+
+			@foreach(var job in new List<DreamWorkerStudioJobs.Models.Job>(_temp))
+			{
+				<div class="col-md-4">
+					<h4>@(job.Name)</h4>
+					<p>@(job.Introduction[Model])</p>
+					<p>@(job.Requirement[Model])</p>
+					<p>
+						<a class="btn btn-default" href="/ApplyForJob/Apply/@(job.ID)In@(Model.ID)">申请职位 &raquo;</a>
+					</p>
+				</div>
+			}
+		</div>
+
+	}
+
+
+</div>
+
+
