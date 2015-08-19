@@ -13,9 +13,29 @@ namespace DreamWorkerStudioJobs.Controllers
     {
         public ActionResult Apply(string id)
         {
-           
-            ApplyForJob temp = new ApplyForJob();
 
+            ApplyForJob temp = new ApplyForJob();
+            if(id != null)
+            {
+
+                var list = id?.ToLower()?.Split(new string[] { "in" },StringSplitOptions.None);
+
+
+                foreach(var project in MvcApplication.ProjectList)
+                {
+                    if(list[0] == project.ID.ToLower())
+                    {
+                        temp.Project = project.ID;
+                        foreach(var job in project.Jobs)
+                        {
+                            if(list[1] == job.ID.ToLower())
+                            {
+                                temp.Job = job.ID;
+                            }
+                        }
+                    }
+                }
+            }
             return View("Apply",temp);
         }
 
@@ -26,21 +46,33 @@ namespace DreamWorkerStudioJobs.Controllers
             ViewBag.HasState = true;
             if(ModelState.IsValid)
             {
-                ViewBag.Message = "成功，我们已经记录你的信息并将会通知你下一步的行动";
-                ViewBag.Kind = "success";
-            }
-            else
-            {
-                ViewBag.Message = "发生了错误：";
-                foreach(var item in ModelState)
+                var job = (from item in MvcApplication.JobList
+                           where item.ID == ModelState["Job"].Value.AttemptedValue
+                           select item).FirstOrDefault();
+                var project = (from item in MvcApplication.ProjectList
+                               where item.ID == ModelState["Project"].Value.AttemptedValue
+                               select item).FirstOrDefault();
+                if(job.Introduction.ContainsKey(project))
                 {
-                    foreach(var err in item.Value.Errors)
-                    {
-                        ViewBag.Message += err.ErrorMessage + "；";
-                    }
+                    ViewBag.Message = "成功，我们已经记录你的信息并将会通知你下一步的行动";
+                    ViewBag.Kind = "success";
+                    var result = new ApplyForJobResult { ID = (ModelState["Ming"].Value.AttemptedValue + ModelState["Xing"].Value.AttemptedValue).GetHashCode() };
+                    return View("Result",result);
                 }
-                ViewBag.Kind = "danger";
+                else
+                {
+                    ModelState["Job"].Errors.Add("所选的项目不希望所选的职位");
+                }
             }
+            ViewBag.Message = "发生了错误：";
+            foreach(var item in ModelState)
+            {
+                foreach(var err in item.Value.Errors)
+                {
+                    ViewBag.Message += err.ErrorMessage + "；";
+                }
+            }
+            ViewBag.Kind = "danger";
             return View();
         }
 

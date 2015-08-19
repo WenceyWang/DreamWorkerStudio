@@ -16,12 +16,12 @@
 
 @{
 	List<SelectListItem> projectItem = new List<SelectListItem>();
-	foreach(var item in MvcApplication.Current.ProjectList)
+	foreach(var item in MvcApplication.ProjectList)
 	{
 		projectItem.Add(new SelectListItem { Text = item.Name,Value = item.ID });
 	}
 	List<SelectListItem> jobItem = new List<SelectListItem>();
-	foreach(var item in MvcApplication.Current.JobList)
+	foreach(var item in MvcApplication.JobList)
 	{
 		jobItem.Add(new SelectListItem { Text = item.Name,Value = item.ID });
 	}

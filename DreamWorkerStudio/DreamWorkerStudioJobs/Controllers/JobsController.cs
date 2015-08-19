@@ -10,7 +10,7 @@ namespace DreamWorkerStudioJobs.Controllers
     {
         public ActionResult List(string id)
         {
-            foreach(var item in MvcApplication.Current.JobList)
+            foreach(var item in MvcApplication.JobList)
             {
                 if(item.ID.ToLower() == id?.ToLower())
                 {
@@ -24,7 +24,7 @@ namespace DreamWorkerStudioJobs.Controllers
         // GET: Jobs
         public ActionResult Index(string id)
         {
-            return View("JobOverView",MvcApplication.Current.JobList);
+            return View("JobOverView",MvcApplication.JobList);
         }
     }
 }

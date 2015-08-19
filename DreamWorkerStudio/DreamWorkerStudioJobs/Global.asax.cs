@@ -14,11 +14,10 @@ namespace DreamWorkerStudioJobs
 {
     public class MvcApplication:System.Web.HttpApplication
     {
-        public static MvcApplication Current { get; set; }
+        public static List<Job> JobList { get; set; }
 
-        public List<Job> JobList { get; set; }
+        public static List<Project> ProjectList { get; set; }
 
-        public List<Project> ProjectList { get; set; }
 
         protected void Application_Start()
         {
@@ -30,8 +29,6 @@ namespace DreamWorkerStudioJobs
 
         public MvcApplication()
         {
-            Current = this;
-
             var doc = XDocument.Parse(Resources.Projects);
 
             Dictionary<string,Job> tempJob = new Dictionary<string,Job>();

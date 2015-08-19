@@ -10,7 +10,7 @@ namespace DreamWorkerStudioJobs.Controllers
     {
         public ActionResult Index()
         {
-            return View(MvcApplication.Current.ProjectList);
+            return View(MvcApplication.ProjectList);
         }
 
         public ActionResult About()
