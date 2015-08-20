@@ -65,19 +65,19 @@ namespace DreamWorkerStudioJobs.Models
         [Display(Name = "年级")]
         [Required(ErrorMessage = "你没有填写一些项目")]
         [Range(1,3,ErrorMessage = "你的年级错误")]
-        public int Grade { get; set; }
+        public int? Grade { get; set; }
 
         [Display(Name = "班级")]
         [Required(ErrorMessage = "你没有填写一些项目")]
         [Range(1,10,ErrorMessage = "你的班级错误")]
-        public int Class { get; set; }
+        public int? Class { get; set; }
 
         [Display(Name = "中考分数")]
         [Required(ErrorMessage = "你没有填写一些项目")]
         [Range(400,720,ErrorMessage = "你的中考分数错误")]
-        public int Mark { get; set; }
+        public int? Mark { get; set; }
 
-        [Display(Name = "你的优势")]
+        [Display(Name = "你的优势和能力")]
         [Required(ErrorMessage = "你没有填写一些项目")]
         public string Advantage { get; set; }
     }

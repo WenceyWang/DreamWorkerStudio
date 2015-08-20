@@ -1,10 +1,9 @@
 ﻿@model DreamWorkerStudioJobs.Models.ApplyForJob
 
 @{
-	ViewBag.Title = "Apply";
+	ViewBag.Title = "申请职位";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="jumbotron">
 	<h1>申请职位</h1>
 	<p class="lead">报名参加我们的考试</p>
@@ -33,117 +32,110 @@
 	<h4>你的信息</h4>
 	<hr />
 	@Html.ValidationSummary(true);
-	<div class="row form-horizontal">
-
+	<form>
 		<div class="form-group">
-			@Html.LabelFor(model => model.Project,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.DropDownListFor(model => model.Project,projectItem)
-				@Html.ValidationMessageFor(model => model.Project)
-			</div>
+			@Html.LabelFor(model => model.Project,new { @class = "control-label" })
+			@Html.DropDownListFor(model => model.Project,projectItem,new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Project)
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Job,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.DropDownListFor(model => model.Job,jobItem)
-				@Html.ValidationMessageFor(model => model.Job)
-			</div>
+			@Html.LabelFor(model => model.Job,new { @class = "control-label" })
+			@Html.DropDownListFor(model => model.Job,jobItem,new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Job)
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Sex,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.DropDownListFor(model => model.Sex,new SelectListItem[] { new SelectListItem { Text = "男",Value = "Male" },new SelectListItem { Text = "女",Value = "Female" } })
-				@Html.ValidationMessageFor(model => model.Sex)
-			</div>
+			@Html.LabelFor(model => model.Sex,new { @class = "control-label" })
+			@Html.DropDownListFor(model => model.Sex,new SelectListItem[] { new SelectListItem { Text = "男",Value = "Male" },new SelectListItem { Text = "女",Value = "Female" } },new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Sex)
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Xing,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Xing,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Xing"])">
+				@Html.LabelFor(model => model.Xing,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.Xing,new { @class = "form-control",@type = "text",@placeholder = "姓" })
 				@Html.ValidationMessageFor(model => model.Xing)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Ming,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Ming,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Ming"])">
+				@Html.LabelFor(model => model.Ming,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.Ming,new { @class = "form-control",@type = "text",@placeholder = "名" })
 				@Html.ValidationMessageFor(model => model.Ming)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.FirstName,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.FirstName,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["FirstName"])">
+				@Html.LabelFor(model => model.FirstName,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.FirstName,new { @class = "form-control",@type = "text",@placeholder = "英文名" })
 				@Html.ValidationMessageFor(model => model.FirstName)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.FamilyName,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.FamilyName,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["FamilyName"])">
+				@Html.LabelFor(model => model.FamilyName,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.FamilyName,new { @class = "form-control",@type = "text",@placeholder = "英文姓" })
 				@Html.ValidationMessageFor(model => model.FamilyName)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Email,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Email,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Email"])">
+				@Html.LabelFor(model => model.Email,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.Email,new { @class = "form-control",@type = "text",@placeholder = "Email" })
 				@Html.ValidationMessageFor(model => model.Email)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.PhoneNumber,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.PhoneNumber,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["PhoneNumber"])">
+				@Html.LabelFor(model => model.PhoneNumber,new { @class = "control-label" })
+
+				@Html.TextBoxFor(model => model.PhoneNumber,new { @class = "form-control",@type = "text",@placeholder = "电话号码" })
 				@Html.ValidationMessageFor(model => model.PhoneNumber)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Grade,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Grade,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Grade"])">
+				@Html.LabelFor(model => model.Grade,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.Grade,new { @class = "form-control",@type = "text",@placeholder = "年级" })
 				@Html.ValidationMessageFor(model => model.Grade)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Class,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Class,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Class"])">
+				@Html.LabelFor(model => model.Class,new { @class = "control-label" })
+
+				@Html.TextBoxFor(model => model.Class,new { @class = "form-control",@type = "text",@placeholder = "班级" })
 				@Html.ValidationMessageFor(model => model.Class)
 			</div>
 		</div>
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Mark,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Mark,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Mark"])">
+				@Html.LabelFor(model => model.Mark,new { @class = "control-label" })
+				@Html.TextBoxFor(model => model.Mark,new { @class = "form-control",@type = "text",@placeholder = "中考分数" })
 				@Html.ValidationMessageFor(model => model.Mark)
 			</div>
 		</div>
 
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Advantage,new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(model => model.Advantage,new { @class = "control-form" })
+			<div class="@(ViewBag.Val?["Advantage"])">
+				@Html.LabelFor(model => model.Advantage,new { @class = "control-label" })
+				@Html.TextAreaFor(model => model.Advantage,new { @class = "form-control",@type = "text",@placeholder = "优势和能力" })
 				@Html.ValidationMessageFor(model => model.Advantage)
 			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<input type="submit" value="提交" class="btn btn-default" />
-			</div>
+			<input type="submit" value="提交" class="btn btn-default" />
 		</div>
-	</div>
+	</form>
 }

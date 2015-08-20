@@ -23,12 +23,12 @@ namespace DreamWorkerStudioJobs.Controllers
 
                 foreach(var project in MvcApplication.ProjectList)
                 {
-                    if(list[0] == project.ID.ToLower())
+                    if(list[1] == project.ID.ToLower())
                     {
                         temp.Project = project.ID;
                         foreach(var job in project.Jobs)
                         {
-                            if(list[1] == job.ID.ToLower())
+                            if(list[0] == job.ID.ToLower())
                             {
                                 temp.Job = job.ID;
                             }
@@ -65,13 +65,23 @@ namespace DreamWorkerStudioJobs.Controllers
                 }
             }
             ViewBag.Message = "发生了错误：";
+            var val = new Dictionary<string,string>();
             foreach(var item in ModelState)
             {
+                if(item.Value.Errors.Count == 0)
+                {
+                    val.Add(item.Key,"has-success");
+                }
+                else
+                {
+                    val.Add(item.Key,"has-error");
+                }
                 foreach(var err in item.Value.Errors)
                 {
                     ViewBag.Message += err.ErrorMessage + "；";
                 }
             }
+            ViewBag.Val = val;
             ViewBag.Kind = "danger";
             return View();
         }
