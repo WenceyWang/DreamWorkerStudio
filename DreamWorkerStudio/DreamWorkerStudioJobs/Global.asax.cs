@@ -6,8 +6,12 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Xml.Linq;
+using System.Xml;
+using System.IO;
+using System.Reflection;
 using DreamWorkerStudioJobs.Models;
 using DreamWorkerStudioJobs.Properties;
+
 
 
 namespace DreamWorkerStudioJobs
@@ -18,6 +22,23 @@ namespace DreamWorkerStudioJobs
 
         public static List<Project> ProjectList { get; set; }
 
+        static XDocument save;
+
+        public static void Save(ApplyForJobResult result)
+        {
+            if((from item in save.Root.Elements() where (long)item.Attribute("ID") == result.ID select item).Count() == 0)
+            {
+                XElement ele = new XElement("Result");
+                foreach(var item in result.GetType().GetProperties())
+                {
+                    ele.SetAttributeValue(item.Name,item.GetValue(result));
+                }
+                save.Root.Add(ele);
+                var steam = File.Open(@"E:\DreamWorkerStudio\Save.xml",FileMode.Open);
+                save.Save(steam);
+                steam.Close();
+            }
+        }
 
         protected void Application_Start()
         {
@@ -70,7 +91,10 @@ namespace DreamWorkerStudioJobs
             }
             ProjectList = tempProject;
             JobList = new List<Job>(tempJob.Values);
-
+            var stream = File.Open(@"E:\DreamWorkerStudio\Save.xml",FileMode.Open);
+            var reader = new StreamReader(stream);
+            save = XDocument.Parse(reader.ReadToEnd());
+            stream.Close();
         }
     }
 }

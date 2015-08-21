@@ -1,54 +1,64 @@
 ﻿using System;
-using System . Collections . Generic;
-using System . Linq;
-using System . Text;
-using System . Web . Mvc;
-using Microsoft . VisualStudio . TestTools . UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Mvc;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DreamWorkerStudioJobs;
-using DreamWorkerStudioJobs . Controllers;
+using DreamWorkerStudioJobs.Controllers;
+using DreamWorkerStudioJobs.Models;
 
-namespace DreamWorkerStudioJobs . Tests . Controllers
+namespace DreamWorkerStudioJobs.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index ( )
+        public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController ( );
+            HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller . Index ( ) as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert . IsNotNull ( result );
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void About ( )
+        public void About()
         {
             // Arrange
-            HomeController controller = new HomeController ( );
+            HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller . About ( ) as ViewResult;
+            ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert . AreEqual ( "Your application description page." , result . ViewBag . Message );
+            Assert.AreEqual("Your application description page.",result.ViewBag.Message);
         }
 
         [TestMethod]
-        public void Contact ( )
+        public void Contact()
         {
-            // Arrange
-            HomeController controller = new HomeController ( );
+            var mvc = new MvcApplication();
+            ApplyForJobResult result = new ApplyForJobResult();
+            int a = 0;
+            foreach(var item in result.GetType().GetProperties())
+            {
+                try
+                {
+                item.SetValue(result,Convert.ChangeType(a,item.PropertyType));
 
-            // Act
-            ViewResult result = controller . Contact ( ) as ViewResult;
+                }
+                catch(Exception)
+                {
 
-            // Assert
-            Assert . IsNotNull ( result );
+                }
+                a++;
+            }
+            MvcApplication.Save(result);
         }
     }
 }
